@@ -1,0 +1,6 @@
+%h1= @match.title
+%p= @match.description
+
+= link_to "Back", root_path
+= link_to "Edit", edit_match_path
+= link_to "Delete", match_path, method: :delete, data: { confirm: "Holy McDoodles, you're deleting this?" }
