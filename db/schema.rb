@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171226183122) do
+ActiveRecord::Schema.define(version: 20171227100254) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -29,11 +29,25 @@ ActiveRecord::Schema.define(version: 20171226183122) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "matches", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_matches_on_user_id"
+  end
+
+  create_table "matches_users", id: false, force: :cascade do |t|
+    t.integer "match_id", null: false
+    t.integer "user_id",  null: false
+    t.index ["match_id", "user_id"], name: "index_matches_users_on_match_id_and_user_id"
+    t.index ["user_id", "match_id"], name: "index_matches_users_on_user_id_and_match_id"
   end
 
   create_table "users", force: :cascade do |t|
