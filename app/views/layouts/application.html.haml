@@ -6,6 +6,26 @@
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar-brand= link_to "Vetosys", root_path
+        - if admin_signed_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "New Match", new_match_path
+            %li= link_to "My account", edit_admin_registration_path
+            %li= link_to "Sign out", destroy_admin_session_path, method: :delete
+        - elsif user_signed_in?
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "My matches"
+            %li= link_to "My account", edit_user_registration_path
+            %li= link_to "Sign out", destroy_user_session_path, method: :delete
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "User Login", new_user_session_path
+            %li= link_to "Admin Login", new_admin_session_path
+            %li= link_to "Register", new_user_registration_path
+
+  .container 
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert alert-info"
     = yield
