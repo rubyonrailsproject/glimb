@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227100254) do
+ActiveRecord::Schema.define(version: 20171227120744) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,8 +30,22 @@ ActiveRecord::Schema.define(version: 20171227100254) do
   end
 
   create_table "maps", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "title"
+  end
+
+  create_table "maps_matches", id: false, force: :cascade do |t|
+    t.integer "map_id",   null: false
+    t.integer "match_id", null: false
+    t.index ["map_id", "match_id"], name: "index_maps_matches_on_map_id_and_match_id"
+    t.index ["match_id", "map_id"], name: "index_maps_matches_on_match_id_and_map_id"
+    t.index ["match_id", nil], name: "index_maps_matches_on_match_id_and_map_image"
+    t.index ["match_id", nil], name: "index_maps_matches_on_match_id_and_map_title"
   end
 
   create_table "matches", force: :cascade do |t|

@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+matches = Match.map([{title: 'Toujane'}, {title: 'Burgundy'}, {title: 'Dawnville'}, {title: 'Matmata'}, {title: 'Carentan'}])

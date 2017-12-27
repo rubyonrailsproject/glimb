@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :matches
+  resources :maps
 
   devise_for :admins, path: 'admins', controllers: { 
         confirmations: "admins/confirmations",
