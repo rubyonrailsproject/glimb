@@ -2,7 +2,7 @@ class MatchesController < ApplicationController
     before_action :find_match, only: [:show, :edit, :update, :destroy]
 
     def index
-        @matches = Match.all.order("created_at DESC")
+        @matches = Match.all.order(:title)
     end
 
     def show

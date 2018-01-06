@@ -1,8 +1,26 @@
-%h1= @match.title
-%p= @match.description
-%p= @match.user_ids
-
-= link_to "Back", root_path
-- if admin_signed_in?
-    = link_to "Edit", edit_match_path
-    = link_to "Delete", match_path, method: :delete, data: { confirm: "Holy McDoodles, you're deleting this?" }
+#match_show.row
+    .col-md-8.col-md-offset-2
+        .panel.panel-default
+            .panel-heading
+                %h1= @match.title 
+                %br/
+                - @match.matches_users.each do |matches_user|
+                    %p= matches_user.user.team 
+            .panel-body
+                #maps_matches.transition-enabled    
+                    - @match.maps_matches.each do |maps_match|
+                        .box.panel.panel-default
+                            =link_to (image_tag maps_match.map.image.url)
+                            .panel-body
+                                %p= link_to maps_match.map.title
+                                = link_to like_match_maps_match_path(maps_match.map), method: :put, class: 'btn btn-default' do
+                                    %span.glyphicon.glyphicon-ban-circle
+                                    = maps_match.map.get_upvotes.size                                       
+            .panel-footer
+                .row
+                    .col-md-6
+                        .btn-group
+                            = link_to "Back", root_path
+                            - if admin_signed_in?
+                                = link_to "Edit", edit_match_path
+                                = link_to "Delete", match_path, method: :delete, data: { confirm: "Holy McDoodles, you're deleting this?" }

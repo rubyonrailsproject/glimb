@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227120744) do
+ActiveRecord::Schema.define(version: 20180102200907) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,13 +39,14 @@ ActiveRecord::Schema.define(version: 20171227120744) do
     t.string   "title"
   end
 
-  create_table "maps_matches", id: false, force: :cascade do |t|
-    t.integer "map_id",   null: false
-    t.integer "match_id", null: false
-    t.index ["map_id", "match_id"], name: "index_maps_matches_on_map_id_and_match_id"
-    t.index ["match_id", "map_id"], name: "index_maps_matches_on_match_id_and_map_id"
-    t.index ["match_id", nil], name: "index_maps_matches_on_match_id_and_map_image"
-    t.index ["match_id", nil], name: "index_maps_matches_on_match_id_and_map_title"
+  create_table "maps_matches", force: :cascade do |t|
+    t.integer "map_id"
+    t.integer "match_id"
+  end
+
+  create_table "maps_users", force: :cascade do |t|
+    t.integer "map_id"
+    t.integer "user_id"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -53,15 +54,11 @@ ActiveRecord::Schema.define(version: 20171227120744) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
-  create_table "matches_users", id: false, force: :cascade do |t|
-    t.integer "match_id", null: false
-    t.integer "user_id",  null: false
-    t.index ["match_id", "user_id"], name: "index_matches_users_on_match_id_and_user_id"
-    t.index ["user_id", "match_id"], name: "index_matches_users_on_user_id_and_match_id"
+  create_table "matches_users", force: :cascade do |t|
+    t.integer "match_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -77,8 +74,23 @@ ActiveRecord::Schema.define(version: 20171227120744) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "team"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "votable_type"
+    t.integer  "votable_id"
+    t.string   "voter_type"
+    t.integer  "voter_id"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
 end

@@ -1,17 +1,8 @@
-// %p.date
-//    - if admin_signed_in?
-//        =link_to "Admin Sign out", destroy_admin_session_path, :method => :delete
-//    - else
-//        =link_to "Admin Sign In", admin_session_path, :method => :get
-//%p.date
-//    - if user_signed_in?
-//        =link_to "User Sign out", destroy_user_session_path, :method => :delete
-//    - else
-//        =link_to "User Sign in", user_session_path, :method => :get
-//
-//
-//
-//- if admin_signed_in?
-//    =link_to "Add a match", new_match_path
--   @matches.each do |match|
-    %h2= link_to match.title, match
+#match_show.row
+    .col-md-8.col-md-offset-2
+        #matches.transition-enabled
+            -   @matches.each do |match|
+                .box.panel.panel-default
+                    .panel-body
+                        %h2= link_to match.title, match
+                    

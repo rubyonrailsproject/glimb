@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-    before_action :find_map, only: [:show, :edit, :update, :destroy]
+    before_action :find_map, only: [:show, :edit, :update, :destroy, :downvote]
     
         def index
             @maps = Map.all.order("created_at DESC")
@@ -37,6 +37,17 @@ class MapsController < ApplicationController
         def destroy
             @map.destroy
             redirect_to root_path
+        end
+
+        def downvote
+            @map.downvote_by current_user
+            redirect_to :back
+        end
+
+
+        def upvote
+            @map.upvote_by current_user
+            redirect_to :back
         end
     
         private

@@ -3,5 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_and_belongs_to_many :matches    
+  acts_as_voter
+         
+  has_many :matches_users, class_name: 'MatchesUser'         
+  has_many :matches, through: :matches_users, class_name: 'MatchesUser'
 end

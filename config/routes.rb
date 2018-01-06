@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :matches
   resources :maps
+  resources :matches do
+    resources :maps_matches do
+      member do
+        put "like", to: "maps_matches#upvote"
+      end
+    end
+  end
 
   devise_for :admins, path: 'admins', controllers: { 
         confirmations: "admins/confirmations",
