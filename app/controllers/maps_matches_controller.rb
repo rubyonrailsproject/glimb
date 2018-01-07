@@ -56,6 +56,6 @@ class MapsMatchesController < ApplicationController
             end
         
             def find_maps_match
-                @maps_match = Maps_match.find(params[:id])
+                @maps_match = MapsMatch.find(params[:id])
             end
 end

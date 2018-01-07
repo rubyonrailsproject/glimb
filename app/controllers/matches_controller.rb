@@ -1,5 +1,7 @@
 class MatchesController < ApplicationController
+
     before_action :find_match, only: [:show, :edit, :update, :destroy]
+
 
     def index
         @matches = Match.all.order(:title)
@@ -38,6 +40,7 @@ class MatchesController < ApplicationController
         @match.destroy
         redirect_to root_path
     end
+
 
     private
 
