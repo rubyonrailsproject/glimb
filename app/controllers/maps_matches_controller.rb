@@ -2,7 +2,7 @@ class MapsMatchesController < ApplicationController
     before_action :find_maps_match, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
     
         def index
-            @maps_matches = Maps_match.all.order("created_at DESC")
+            @maps_matches = MapsMatch.all.order("created_at DESC")
         end
     
         def show
@@ -10,11 +10,11 @@ class MapsMatchesController < ApplicationController
         end
     
         def new
-            @maps_match = Maps_match.new
+            @maps_match = MapsMatch.new
         end
     
         def create
-            @maps_match = Maps_match.new(maps_match_params)
+            @maps_match = MapsMatch.new(maps_match_params)
     
             if @maps_match.save
                 redirect_to @maps_match, notice: "Map successfully added to the match"

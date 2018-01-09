@@ -1,0 +1,8 @@
+#match_show.row
+    .col-md-8.col-md-offset-2
+        #matches.transition-enabled
+            -   @matches.each do |match|
+                .box.panel.panel-default.matchbox
+                    .panel-body
+                        %h2= link_to match.title, match
+                    

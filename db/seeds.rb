@@ -12,3 +12,69 @@ MapsMatch.create :map_id => 2, :match_id => 1
 MapsMatch.create :map_id => 3, :match_id => 1
 MapsMatch.create :map_id => 4, :match_id => 1
 MapsMatch.create :map_id => 5, :match_id => 1
+
+MapsMatch.create :map_id => 1, :match_id => 2
+MapsMatch.create :map_id => 2, :match_id => 2
+MapsMatch.create :map_id => 3, :match_id => 2
+MapsMatch.create :map_id => 4, :match_id => 2
+MapsMatch.create :map_id => 5, :match_id => 2
+
+MapsMatch.create :map_id => 1, :match_id => 3
+MapsMatch.create :map_id => 2, :match_id => 3
+MapsMatch.create :map_id => 3, :match_id => 3
+MapsMatch.create :map_id => 4, :match_id => 3
+MapsMatch.create :map_id => 5, :match_id => 3
+
+MapsMatch.create :map_id => 1, :match_id => 4
+MapsMatch.create :map_id => 2, :match_id => 4
+MapsMatch.create :map_id => 3, :match_id => 4
+MapsMatch.create :map_id => 4, :match_id => 4
+MapsMatch.create :map_id => 5, :match_id => 4
+
+MapsMatch.create :map_id => 1, :match_id => 5
+MapsMatch.create :map_id => 2, :match_id => 5
+MapsMatch.create :map_id => 3, :match_id => 5
+MapsMatch.create :map_id => 4, :match_id => 5
+MapsMatch.create :map_id => 5, :match_id => 5
+
+MapsMatch.create :map_id => 1, :match_id => 6
+MapsMatch.create :map_id => 2, :match_id => 6
+MapsMatch.create :map_id => 3, :match_id => 6
+MapsMatch.create :map_id => 4, :match_id => 6
+MapsMatch.create :map_id => 5, :match_id => 6
+
+MapsMatch.create :map_id => 1, :match_id => 7
+MapsMatch.create :map_id => 2, :match_id => 7
+MapsMatch.create :map_id => 3, :match_id => 7
+MapsMatch.create :map_id => 4, :match_id => 7
+MapsMatch.create :map_id => 5, :match_id => 7
+
+MapsMatch.create :map_id => 1, :match_id => 8
+MapsMatch.create :map_id => 2, :match_id => 8
+MapsMatch.create :map_id => 3, :match_id => 8
+MapsMatch.create :map_id => 4, :match_id => 8
+MapsMatch.create :map_id => 5, :match_id => 8
+
+MapsMatch.create :map_id => 1, :match_id => 9
+MapsMatch.create :map_id => 2, :match_id => 9
+MapsMatch.create :map_id => 3, :match_id => 9
+MapsMatch.create :map_id => 4, :match_id => 9
+MapsMatch.create :map_id => 5, :match_id => 9
+
+MapsMatch.create :map_id => 1, :match_id => 11
+MapsMatch.create :map_id => 2, :match_id => 11
+MapsMatch.create :map_id => 3, :match_id => 11
+MapsMatch.create :map_id => 4, :match_id => 11
+MapsMatch.create :map_id => 5, :match_id => 11
+
+MapsMatch.create :map_id => 1, :match_id => 13
+MapsMatch.create :map_id => 2, :match_id => 13
+MapsMatch.create :map_id => 3, :match_id => 13
+MapsMatch.create :map_id => 4, :match_id => 13
+MapsMatch.create :map_id => 5, :match_id => 13
+
+MapsMatch.create :map_id => 1, :match_id => 15
+MapsMatch.create :map_id => 2, :match_id => 15
+MapsMatch.create :map_id => 3, :match_id => 15
+MapsMatch.create :map_id => 4, :match_id => 15
+MapsMatch.create :map_id => 5, :match_id => 15

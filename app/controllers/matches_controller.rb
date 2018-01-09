@@ -8,7 +8,7 @@ class MatchesController < ApplicationController
     end
 
     def show
-
+        
     end
 
     def new
@@ -23,6 +23,8 @@ class MatchesController < ApplicationController
         else
             render 'new'
         end
+
+    
     end
 
     def edit

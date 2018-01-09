@@ -1,5 +1,5 @@
 class MapsController < ApplicationController
-    before_action :find_map, only: [:show, :edit, :update, :destroy, :downvote]
+    before_action :find_map, only: [:show, :edit, :update, :destroy]
     
         def index
             @maps = Map.all.order("created_at DESC")

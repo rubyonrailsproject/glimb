@@ -7,19 +7,20 @@
                 - @match.matches_users.each do |matches_user|
                     %h4= matches_user.user.team 
             .panel-body
+            - if @match.matches_users.select{|u| u.id == current_user.id}.present?
                 #maps.transition-enabled    
-                    - if @match.matches_users.select{|u| u.id == current_user.id}.present?
-                        - @match.maps_matches.each do |maps_match|
-                            .box.panel.panel-default
-                                =link_to (image_tag maps_match.map.image.url)
-                                .panel-body
-                                    %p= link_to maps_match.map.title
-                                    = link_to like_match_maps_match_path(maps_match.map), method: :put, class: 'btn btn-default' do
-                                        %span.glyphicon.glyphicon-ban-circle
-                                        = maps_match.get_upvotes.size
-                    - else
-                        .panel-body.box
-                            %p You do not have a permission to view this match.                                   
+                    - @match.maps_matches.each do |maps_match|
+                        .box.panel.panel-default
+                            =link_to (image_tag maps_match.map.image.url)
+                            .panel-body
+                                %p= link_to maps_match.map.title
+                                = link_to like_match_maps_match_path(maps_match.map), method: :put, class: 'btn btn-default' do
+                                    %span.glyphicon.glyphicon-ban-circle
+                                    = maps_match.get_upvotes.size
+            - else
+                .box.panel.panel-default
+                    .panel-body
+                        %p You do not have a permission to vote on this match.                                   
             .panel-footer
                 .row
                     .col-md-6
