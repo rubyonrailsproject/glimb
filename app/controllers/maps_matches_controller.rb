@@ -1,8 +1,9 @@
 class MapsMatchesController < ApplicationController
     before_action :find_maps_match, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+    before_action :authenticate_user!, only: [:edit, :update, :destroy, :upvote, :downvote]
     
         def index
-            @maps_matches = MapsMatch.all.order("created_at DESC")
+            @maps_matches = MapsMatch.all
         end
     
         def show
@@ -39,8 +40,8 @@ class MapsMatchesController < ApplicationController
             redirect_to root_path
         end
 
-        def upvote
-            @maps_match.upvote_by current_user
+        def upvote   
+            @maps_match.upvote_by current_user 
             redirect_to :back
         end
 

@@ -16,7 +16,7 @@
                                 %p= link_to maps_match.map.title
                                 = link_to like_match_maps_match_path(maps_match.map), method: :put, class: 'btn btn-default' do
                                     %span.glyphicon.glyphicon-ban-circle
-                                    = maps_match.get_upvotes.size
+                                    = maps_match.get_likes.size
             - else
                 .box.panel.panel-default
                     .panel-body
