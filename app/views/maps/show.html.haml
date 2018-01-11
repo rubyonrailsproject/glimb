@@ -8,4 +8,5 @@
                 %br/
                 =link_to "Create another map", new_map_path
                 %br/
+                =link_to "Back", redirect_to :back
                 =link_to "Delete Map", map_path, method: :delete, data: { confirm: "Holy McDoodles, you're deleting this?" } 

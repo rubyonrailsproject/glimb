@@ -18,7 +18,7 @@ class MapsMatchesController < ApplicationController
             @maps_match = MapsMatch.new(maps_match_params)
     
             if @maps_match.save
-                redirect_to @maps_match, notice: "Map successfully added to the match"
+                redirect_to :back, notice: "Map successfully added to the match"
             else
                 render 'new'
             end

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :maps
+  resources :matches_users
+  resources :maps_matches
   resources :matches do
     resources :maps_matches do
       member do

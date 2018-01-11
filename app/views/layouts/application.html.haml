@@ -11,9 +11,12 @@
         .navbar-brand= link_to "Vetosys", root_path
         - if admin_signed_in?
           %ul.nav.navbar-nav.navbar-right
-            %li= link_to "New Match", new_match_path
-            %li= link_to "My account", edit_admin_registration_path
-            %li= link_to "Sign out", destroy_admin_session_path, method: :delete
+            %li= link_to "| New Match |", new_match_path
+            %li= link_to "| New map |", new_map_path
+            %li= link_to "| New user relation |", new_matches_user_path
+            %li= link_to "| New map relation |", new_maps_match_path
+            %li= link_to "| My account |", edit_admin_registration_path
+            %li= link_to "| Sign out |", destroy_admin_session_path, method: :delete
         - elsif user_signed_in?
           %ul.nav.navbar-nav.navbar-right
             %li= link_to "My matches"

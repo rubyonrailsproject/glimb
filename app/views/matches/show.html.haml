@@ -7,7 +7,7 @@
                 - @match.matches_users.each do |matches_user|
                     %h4= matches_user.user.team 
             .panel-body
-            - if @match.matches_users.select{|u| u.id == current_user.id}.present?
+            - if admin_signed_in? || @match.matches_users.select{|u| u.id == current_user.id}.present?  
                 #maps.transition-enabled    
                     - @match.maps_matches.each do |maps_match|
                         .box.panel.panel-default

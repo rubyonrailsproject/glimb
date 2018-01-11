@@ -1,0 +1,17 @@
+= simple_form_for @maps_match, html: {multipart: true} do |f|
+    - if @maps_match.errors.any?
+        #errors
+            %h2
+            =pluralize(@maps_match.errors.count, "error")
+            prevented this entry from saving
+            %ul 
+                -   @maps_match.errors.full_messages.each do |msg|
+                    %li= msg
+                  
+    .form-group
+        = f.input :map_id, input_html: {class: "form-control"}
+
+    .form-group
+        = f.input :match_id, input_html: {class: "form-control"}
+    
+    = f.button :submit, class: "btn btn-primary"
