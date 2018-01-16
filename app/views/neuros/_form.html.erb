@@ -1,0 +1,13 @@
+<%= simple_form_for(@neuro) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+      <%= f.input :result1,:label => "First Match Result", input_html: {class: "form-control"} %>
+      <%= f.input :result2,:label => "Second Match Result", input_html: {class: "form-control"} %>
+      <%= f.input :playername, input_html: {class: "form-control"} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, :label => "Analyze"%>
+  </div>
+<% end %>

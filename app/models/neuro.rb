@@ -1,0 +1,2 @@
+class Neuro < ApplicationRecord
+end
